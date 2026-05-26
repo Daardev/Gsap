@@ -20,14 +20,14 @@ gsap.from(".char", {
 });
 
 gsap.to(".sky",{
-  scale: 1.2,
-  duration: 2
+  scale: 1.5,
+  duration: 3
 })
 
 gsap.to(".mountains",{
-  y: -50,
-  scale: 1.5,
-  duration: 4
+  y: -10,
+  scale: 1.2,
+  duration: 3
 })
 
 gsap.to(".lake", {

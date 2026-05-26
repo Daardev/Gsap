@@ -41,16 +41,14 @@ p{
   height: 100%;
 }
 .sky{
-  margin-top: -100px;
-  height: 150%;
+  height: 120%;
 }
 
 @media(min-height: 568px) and (max-width: 1200px){
   .sky{
+    margin-top: -50px;
     width: 100%; 
     height: 120%;
-  }
-  .mountains{
   }
   h1{
     font-size: 2em;
