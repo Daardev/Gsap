@@ -5,9 +5,14 @@ body {
   overflow-x: hidden;
   background: #000;
 }
+nav{
+  position: relative;
+  z-index: 999;
+  color: black;
+}
 
 .video-section {
-  height: 200vh;
+  height: 700vh;
   position: relative;
 }
 
