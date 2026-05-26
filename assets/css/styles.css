@@ -45,6 +45,9 @@ h1{
   }
 }
 @media(max-width: 567px){
+  .hero{
+    height: 100vh;
+  }
   .sky{
     width: 150%;
   }
