@@ -20,8 +20,9 @@ gsap.from(".char", {
 });
 
 gsap.to(".sky",{
-  scale: 1.2,
-  duration: 4
+  y: -50,
+  scale: 1.5,
+  duration: 3
 })
 
 gsap.to(".mountains",{

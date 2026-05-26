@@ -46,7 +46,7 @@ h1{
 }
 @media(max-width: 567px){
   .sky{
-    width: 100%;
+    width: 150%;
   }
   .mountains{
     width: 100%;
