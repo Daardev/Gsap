@@ -20,15 +20,14 @@ gsap.from(".char", {
 });
 
 gsap.to(".sky",{
-  y: -50,
-  scale: 1.5,
-  duration: 3
+  scale: 1.2,
+  duration: 2
 })
 
 gsap.to(".mountains",{
   y: -50,
   scale: 1.5,
-  duration: 2
+  duration: 4
 })
 
 gsap.to(".lake", {
@@ -41,4 +40,12 @@ gsap.from(".hero-content h1", {
   y: 100,
   opacity: 0,
   duration: 1.2,
+});
+
+gsap.from(".hero-text", {
+  opacity: 0,
+  y: 30,
+  duration: 1,
+  delay: 1,
+  ease: "power3.out"
 });
