@@ -14,21 +14,26 @@ titulo.innerHTML = texto
 gsap.from(".char", {
   opacity: 0,
   y: 80,
-  duration: 1,
+  duration: 1.2,
   ease: "power4.out",
   stagger: 0.05,
 });
 
-gsap.to(".box", {
-  duration: 4,
-  ease: "power2.out",
+gsap.to(".sky",{
   scale: 1.2,
-});
+  duration: 4
+})
 
 gsap.to(".mountains",{
-  y: -100,
-  scale: 1.3,
-  duration: 4
+  y: -50,
+  scale: 1.5,
+  duration: 2
+})
+
+gsap.to(".lake", {
+  y:-20,
+  scale: 1.2,
+  duration: 2,
 })
 
 gsap.from(".hero-content h1", {
