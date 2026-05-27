@@ -1,29 +1,80 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
-const video = document.querySelector("#video");
+const canvas = document.querySelector("#canvas");
+const context = canvas.getContext("2d");
 
-// create the scrollSmoother before your scrollTriggers
-ScrollSmoother.create({
-	smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-	effects: true, // looks for data-speed and data-lag attributes on elements
-	smoothTouch: 0.1 // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-});
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-gsap.to(video, {
-  currentTime: 4,
+const frameCount = 121;
+
+const currentFrame = (index) => (
+  `../assets/frame/frame_${String(index + 1).padStart(4, "0")}.png`
+);
+
+const images = [];
+
+const sequence = {
+  frame: 0
+};
+
+for (let i = 0; i < frameCount; i++) {
+
+  const img = new Image();
+
+  img.src = currentFrame(i);
+
+  images.push(img);
+}
+
+images[0].onload = render;
+
+function render() {
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  const img = images[sequence.frame];
+
+  // mantener proporción
+  const scale = Math.max(
+    canvas.width / img.width,
+    canvas.height / img.height
+  );
+
+  const x = (canvas.width / 2) - (img.width / 2) * scale;
+  const y = (canvas.height / 2) - (img.height / 2) * scale;
+
+  context.drawImage(
+    img,
+    x,
+    y,
+    img.width * scale,
+    img.height * scale
+  );
+}
+
+gsap.to(sequence, {
+
+  frame: frameCount - 1,
+
+  snap: "frame",
+
   ease: "none",
 
   scrollTrigger: {
-    trigger: ".video-section",
-    pin: true, // pin the trigger element while active
-    start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "+=500", // end after scrolling 500px beyond the start
-    scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    snap: {
-      snapTo: "labels", // snap to the closest label in the timeline
-      duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-      delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-      ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
-    },
+
+    trigger: ".hero",
+
+    start: "top top",
+
+    end: "+=4000",
+
+    scrub: 1,
+
+    pin: true,
+
+    markers: true
   },
+
+  onUpdate: render
 });
