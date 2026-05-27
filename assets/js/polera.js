@@ -74,27 +74,40 @@ function render() {
 }
 
 gsap.to(sequence, {
-
   frame: frameCount - 1,
-
   snap: "frame",
-
   ease: "none",
-
   scrollTrigger: {
-
     trigger: ".hero",
-
     start: "top top",
-
     end: "+=4000",
-
     scrub: 1,
-
     pin: true,
-
     markers: true
   },
-
   onUpdate: render
+});
+
+gsap.to(".title", {
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top 80%",
+    end: "top 20%",
+    scrub: 1
+  }
+});
+
+gsap.to(".description", {
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top top+=300",
+    end: "+=200",
+    scrub: 1
+  }
 });
