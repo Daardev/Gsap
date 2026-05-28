@@ -76,21 +76,19 @@ gsap.to(".title", {
   y: 0,
   ease: "power2.out",
   scrollTrigger: {
-    trigger: ".hero",
-    start: "top 80%",
-    end: "top 20%",
+    trigger: "h1",
+    start: "top top",
     scrub: 1
   }
 });
 
-gsap.to(".description", {
+gsap.from(".description", {
   opacity: 1,
   y: 0,
   ease: "power2.out",
   scrollTrigger: {
-    trigger: ".hero",
-    start: "top top+=300",
-    end: "+=200",
+    trigger: ".h1",
+    start: "top top",
     scrub: 1
   }
 });

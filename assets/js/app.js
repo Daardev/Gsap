@@ -49,3 +49,4 @@ gsap.from(".hero-text", {
   delay: 1,
   ease: "power3.out"
 });
+
